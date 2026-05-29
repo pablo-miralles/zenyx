@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/hero-03",
+	"title": "Zenyx hero 03",
+	"description": "Hero con breadcrumb editable, fondo imagen/video y decoracion SVG.",
+	"category": "theme",
+	"icon": "cover-image",
+	"textdomain": "zenyx",
+	"keywords": [
+		"hero",
+		"breadcrumb",
+		"video",
+		"imagen"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"backgroundMediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"backgroundImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"showBreadcrumbs": {
+			"type": "boolean",
+			"default": true
+		},
+		"breadcrumbs": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Home",
+					"url": "/"
+				},
+				{
+					"label": "Quienes somos",
+					"url": ""
+				}
+			]
+		},
+		"showDecorativeSvg": {
+			"type": "boolean",
+			"default": true
+		},
+		"heading": {
+			"type": "string",
+			"default": "Somos mas que una aceleradora"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus."
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

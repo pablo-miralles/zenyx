@@ -1,0 +1,97 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/agency-path-01",
+	"title": "Zenyx agency path 01",
+	"description": "Sección con diagrama que avanza en pasos al hacer scroll (pin + GSAP).",
+	"category": "theme",
+	"icon": "slides",
+	"textdomain": "zenyx",
+	"keywords": [
+		"agencia",
+		"camino",
+		"scroll",
+		"pin",
+		"diagrama",
+		"niveles"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"intro": {
+			"type": "string",
+			"default": "Escalar una agencia no es una línea recta. Es un viaje con 3 fases muy claras, cada una con sus propios retos."
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Vuela al punto más alto de tu crecimiento"
+		},
+		"validationTitle": {
+			"type": "string",
+			"default": "Validación"
+		},
+		"validationItems": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Ventas"
+				},
+				{
+					"label": "Procesos"
+				},
+				{
+					"label": "Equipos"
+				}
+			]
+		},
+		"level1Title": {
+			"type": "string",
+			"default": "Nivel 1"
+		},
+		"level1LabelFundamentos": {
+			"type": "string",
+			"default": "fundamentos"
+		},
+		"level1LabelEscalar": {
+			"type": "string",
+			"default": "escalar"
+		},
+		"level2Title": {
+			"type": "string",
+			"default": "Nivel 2"
+		},
+		"level2LabelAsentar": {
+			"type": "string",
+			"default": "asentar"
+		},
+		"level2LabelEscalar": {
+			"type": "string",
+			"default": "escalar"
+		},
+		"level3Title": {
+			"type": "string",
+			"default": "Nivel 3"
+		},
+		"level3LabelLibertad": {
+			"type": "string",
+			"default": "libertad"
+		},
+		"markerLabel": {
+			"type": "string",
+			"default": "A"
+		},
+		"mobileStaticSvgId": {
+			"type": "number",
+			"default": 0
+		},
+		"mobileStaticSvgUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"viewScript": "file:./build/view.js",
+	"render": "file:./render.php"
+}

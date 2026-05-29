@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/media-text-03",
+	"title": "Zenyx media text 03",
+	"description": "Media (imagen o video con blend) y franja de estadísticas en fondo neutral.",
+	"category": "theme",
+	"icon": "align-pull-left",
+	"textdomain": "zenyx",
+	"keywords": [
+		"media",
+		"texto",
+		"estadísticas",
+		"imagen",
+		"video"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"mediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"mediaImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"variant": "single",
+					"primary": "+300 agencias analizadas",
+					"secondary": ""
+				},
+				{
+					"variant": "single",
+					"primary": "+6 años de experiencia",
+					"secondary": ""
+				},
+				{
+					"variant": "double",
+					"primary": "68,3% de renovación",
+					"secondary": "(más del doble de la media del sector)"
+				},
+				{
+					"variant": "double",
+					"primary": "NPS de 59",
+					"secondary": "(Clasificado como excelente según Hubspot)"
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

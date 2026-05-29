@@ -1,0 +1,110 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/hero-02",
+	"title": "Zenyx hero 02",
+	"description": "Hero con fondo, clip, decor SVG, migas, titulo, cuatro destacados y CTA.",
+	"category": "theme",
+	"icon": "cover-image",
+	"textdomain": "zenyx",
+	"keywords": [
+		"hero",
+		"programa",
+		"breadcrumbs",
+		"video",
+		"cta"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"backgroundMediaType": {
+			"type": "string",
+			"default": "video"
+		},
+		"backgroundImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"clipMediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"clipImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"clipImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"clipImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"clipVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"clipVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": "Construimos los 4 procesos clave que te permiten escalar a +83.333€ al mes y tener:"
+		},
+		"featureItems": {
+			"type": "array",
+			"default": [
+				"Ventas estables que no dependen de un mes bueno o malo.",
+				"Finanzas que te permiten dormir tranquilo.",
+				"Clientes que se quedan y son rentables.",
+				"Un equipo que responde sin que estés encima."
+			]
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Solicita información ahora"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"showBreadcrumbs": {
+			"type": "boolean",
+			"default": true
+		},
+		"breadcrumbHomeLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"breadcrumbCurrentLabel": {
+			"type": "string",
+			"default": "Programa libertad"
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

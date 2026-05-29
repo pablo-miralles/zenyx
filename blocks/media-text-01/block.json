@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/media-text-01",
+	"title": "Zenyx media text 01",
+	"description": "Titular, panel con imagen o video (blend) y textos; carrusel por scroll sincronizado.",
+	"category": "theme",
+	"icon": "align-pull-left",
+	"textdomain": "zenyx",
+	"keywords": [
+		"media",
+		"texto",
+		"imagen",
+		"video"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"sectionHeading": {
+			"type": "string",
+			"default": "Por qué Zenyx es la única aceleradora para agencias que necesitas"
+		},
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"panelTitle": "Trabajamos en los fundamentos de una agencia",
+					"panelBody": "<p>Nos centramos en lo que funciona de verdad <span class=\"text-acento\">(ventas, operaciones, finanzas)</span>, no en tácticas o métodos de moda.</p>",
+					"mediaType": "image",
+					"mediaImageId": 0,
+					"mediaImageUrl": "",
+					"mediaImageAlt": "",
+					"mediaVideoId": 0,
+					"mediaVideoUrl": ""
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"viewScript": "file:./build/view.js",
+	"viewStyle": "file:./build/view.css",
+	"render": "file:./render.php"
+}

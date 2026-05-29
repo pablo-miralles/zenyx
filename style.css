@@ -1,0 +1,308 @@
+/*
+Theme Name: zenyx
+Theme URI: https://www.mowomo.com
+Description: Tema desarrollado a medida para zenyx.com
+Version: 1.0.0
+Framework Version: 0.5.3
+Design: mowomo
+Author: mowomo
+Author URI: https://www.mowomo.com
+
+Text Domain: zenyx
+Domain Path: /languages
+
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+:root {
+	--header-height: 72px;
+
+	/* Setup Figma */
+	--zenyx-protagonista: #083b51;
+	--zenyx-neutral-light: #c1d9e4;
+	--zenyx-acento: #fe7756;
+	--zenyx-acento-hover: #cb5f45;
+	--zenyx-white: #ffffff;
+	--zenyx-neutral-dark: #cccccc;
+	--zenyx-black: #18181b;
+
+	--zenyx-font-heading: "RZ-Regular", sans-serif;
+	--zenyx-font-body: "Space Grotesk", sans-serif;
+
+	--zenyx-icon-size: 20px;
+	--zenyx-icon-stroke: 1.2;
+}
+
+@media (min-width: 1024px) {
+	:root {
+		--header-height: 70px;
+	}
+}
+
+/* ====================== GLOBAL ====================== */
+
+html #wpadminbar {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+main.mwm-main-container {
+	position: relative;
+	z-index: 50;
+	background-color: var(--zenyx-neutral-light);
+}
+
+.no-underline {
+	text-decoration: none;
+}
+
+.hover\:underline:hover {
+	text-decoration: underline;
+}
+
+[data-light] .text-inherit {
+	color: var(--zenyx-neutral-light);
+}
+
+[data-dark] .text-inherit {
+	color: var(--zenyx-protagonista);
+}
+
+/* Transición de tema entre secciones (JS: group-section-color-transition) */
+.mwm-group-section-color-transition section {
+	transition-property: background-color, color;
+	transition-duration: 0.45s;
+	transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.mwm-group-section-color-transition section {
+		transition-duration: 0ms;
+	}
+}
+
+:root :where(.is-layout-constrained)>* {
+	margin: 0 !important;
+}
+
+
+/* ====================== FOOTER ====================== */
+
+#colophon {
+	font-family: var(--zenyx-font-heading);
+}
+
+#footer-menu-1 a,
+#footer-menu-2 a,
+#footer-menu-3 a {
+	font-size: 16px;
+	color: var(--zenyx-neutral-light);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+#footer-menu-1 a:hover,
+#footer-menu-2 a:hover,
+#footer-menu-3 a:hover {
+	color: var(--zenyx-acento);
+}
+
+#footer-menu-1 .menu-item-type-custom>a,
+#footer-menu-2 .menu-item-type-custom>a,
+#footer-menu-3 .menu-item-type-custom>a {
+	color: var(--zenyx-acento);
+}
+
+#footer-menu-1 .menu-item-type-custom>a:hover,
+#footer-menu-2 .menu-item-type-custom>a:hover,
+#footer-menu-3 .menu-item-type-custom>a:hover {
+	color: var(--zenyx-acento-hover);
+}
+
+/* ====================== BUTTON COMPONENT ====================== */
+
+.mwm-btn {
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	padding: 12px 24px;
+	border: 1px solid transparent;
+	font-family: var(--zenyx-font-heading);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1;
+	text-decoration: none;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+@media (min-width: 768px) {
+	.mwm-btn {
+		font-size: 16px;
+	}
+}
+
+.mwm-btn:focus-visible {
+	outline: 2px solid var(--zenyx-protagonista);
+	outline-offset: 2px;
+}
+
+.mwm-btn:disabled,
+.mwm-btn[aria-disabled="true"] {
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+.mwm-btn__label {
+	padding: 2px 0;
+}
+
+.mwm-btn__icon {
+	width: var(--zenyx-icon-size);
+	height: var(--zenyx-icon-size);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mwm-btn__icon-svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.mwm-btn--md {
+	min-height: 44px;
+}
+
+.mwm-btn--sm {
+	min-height: auto;
+	gap: 6px;
+	padding: 6px 12px;
+	font-size: 14px;
+}
+
+.mwm-btn--header-outline,
+.mwm-btn--header-primary {
+	font-family: var(--zenyx-font-body);
+	font-weight: 400;
+}
+
+.mwm-btn--header-outline {
+	background-color: transparent;
+	color: var(--zenyx-protagonista);
+	border-color: var(--zenyx-protagonista);
+}
+
+.mwm-btn--header-outline:hover {
+	color: var(--zenyx-acento);
+	border-color: var(--zenyx-acento);
+}
+
+.mwm-btn--header-primary {
+	background-color: var(--zenyx-acento);
+	color: var(--zenyx-white);
+}
+
+.mwm-btn--header-primary:hover {
+	background-color: #cb5f45;
+	color: var(--zenyx-white);
+}
+
+.mwm-btn--header-outline .mwm-btn__icon,
+.mwm-btn--header-primary .mwm-btn__icon {
+	width: 18px;
+	height: 18px;
+}
+
+.mwm-btn--primary {
+	background-color: var(--zenyx-acento);
+	color: var(--zenyx-white);
+}
+
+.mwm-btn--primary:hover {
+	background-color: var(--zenyx-acento-hover);
+	color: var(--zenyx-white);
+}
+
+.mwm-btn--dark {
+	background-color: var(--zenyx-protagonista);
+	color: var(--zenyx-white);
+}
+
+.mwm-btn--dark:hover {
+	background-color: var(--zenyx-acento-hover);
+	color: var(--zenyx-white);
+}
+
+.mwm-btn--light {
+	background-color: var(--zenyx-neutral-light);
+	color: var(--zenyx-protagonista);
+}
+
+.mwm-btn--light:hover {
+	background-color: var(--zenyx-acento-hover);
+	color: var(--zenyx-white);
+}
+
+.mwm-btn--ghost {
+	background-color: transparent;
+	color: var(--zenyx-acento);
+	padding-inline: 0;
+}
+
+.mwm-btn--ghost:hover {
+	color: var(--zenyx-acento-hover);
+}
+
+.mwm-btn--play-outline {
+	background-color: transparent;
+	color: var(--zenyx-neutral-light);
+	border-color: var(--zenyx-neutral-light);
+}
+
+.mwm-btn--play-outline:hover {
+	color: var(--zenyx-acento-hover);
+	border-color: var(--zenyx-acento-hover);
+}
+
+#mwm-header.mwm-header--over-dark .mwm-btn--header-outline {
+	color: #083b51;
+	border-color: #083b51;
+}
+
+#mwm-header.mwm-header--over-dark .mwm-btn--header-outline:hover {
+	color: var(--color-acento);
+	border-color: var(--color-acento);
+}
+
+#mwm-header.mwm-header--over-light .mwm-btn.mwm-btn--header-outline {
+	color: var(--color-neutral-light);
+	border-color: var(--color-neutral-light);
+}
+
+#mwm-header.mwm-header--over-light .mwm-btn.mwm-btn--header-outline:hover {
+	color: var(--color-white);
+	border-color: var(--color-white);
+}
+
+/* ====================== FORMS ====================== */
+
+.wpcf7-not-valid-tip {
+	margin-top: 0.375rem;
+	font-size: 13px;
+	color: #ffd0c3;
+}
+
+.wpcf7-acceptance .wpcf7-list-item {
+	margin: 0 !important;
+}
+
+
+.wpcf7-spinner {
+	display: none;
+}

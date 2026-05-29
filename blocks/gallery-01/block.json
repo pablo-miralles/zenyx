@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/gallery-01",
+	"title": "Zenyx gallery 01",
+	"description": "Sección con texto sticky y collage de imágenes que se desplazan al hacer scroll.",
+	"category": "theme",
+	"icon": "format-gallery",
+	"textdomain": "zenyx",
+	"keywords": [
+		"gallery",
+		"collage",
+		"sticky",
+		"scroll",
+		"images"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Eventos y sesiones de Zenyx"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+		},
+		"images": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

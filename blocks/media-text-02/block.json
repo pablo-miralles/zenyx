@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/media-text-02",
+	"title": "Zenyx media text 02",
+	"description": "Texto sticky a la izquierda y pila de imágenes o videos a la derecha; en móvil todo en columna.",
+	"category": "theme",
+	"icon": "align-pull-right",
+	"textdomain": "zenyx",
+	"keywords": [ "media", "texto", "sticky", "scroll", "imagen", "video" ],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"leftTitle": {
+			"type": "string",
+			"default": "Historias reales de otros dueños de agencia"
+		},
+		"quote": {
+			"type": "string",
+			"default": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet vestibulum mi. Proin varius nunc purus, ac sagittis sem dictum sit amet.”"
+		},
+		"authorName": {
+			"type": "string",
+			"default": "Matías Balinot"
+		},
+		"authorRole": {
+			"type": "string",
+			"default": "Co-founder en Balinot Tech Consulting"
+		},
+		"rightRows": {
+			"type": "array",
+			"default": [
+				{
+					"layout": "one",
+					"panelQuote": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris aliquet vestibulum mi. Proin varius nunc purus, ac sagittis sem dictum sit amet.”",
+					"panelAuthorName": "Matías Balinot",
+					"panelAuthorRole": "Co-founder en Balinot Tech Consulting",
+					"items": [
+						{
+							"mediaType": "image",
+							"mediaImageId": 0,
+							"mediaImageUrl": "",
+							"mediaImageAlt": "",
+							"mediaVideoId": 0,
+							"mediaVideoUrl": ""
+						}
+					]
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"viewScript": "file:./build/view.js",
+	"render": "file:./render.php"
+}

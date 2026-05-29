@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/text-03",
+	"title": "Zenyx text 03",
+	"description": "Seccion de programa con titular, intro y rejilla de beneficios (titulo y texto).",
+	"category": "theme",
+	"icon": "editor-paragraph",
+	"textdomain": "zenyx",
+	"keywords": [
+		"texto",
+		"programa",
+		"beneficios"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "¿Qué incluye el Programa Libertad?"
+		},
+		"intro": {
+			"type": "string",
+			"default": "Esto no es un curso. Es una implementación guiada. Al entrar en Zenyx, tienes acceso a todo lo que necesitas para construir una agencia rentable y autónoma"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"title": "El Framework Zenyx paso a paso",
+					"body": "La hoja de ruta completa con +100 accionables para construir tus 4 procesos principales (ventas, operaciones, finanzas y equipo) sin perder el foco."
+				},
+				{
+					"title": "Sesiones de Consultoría semanales + Mentorías 1a1",
+					"body": "Cada semana, tendrás disponibles talleres, networking y consultorías. Además te acompañamos también en sesiones 1a1 para adaptarnos a tu caso"
+				},
+				{
+					"title": "Arsenal de Recursos: Plantillas, SOPs y Herramientas",
+					"body": "Accede a las mismas plantillas, dashboards y procesos que usamos en nuestras propias agencias para ahorrarte cientos de horas."
+				},
+				{
+					"title": "Comunidad privada de dueños de agencia (sin humo)",
+					"body": "El antídoto a la soledad del fundador. Un espacio donde compartir tus retos, celebrar tus victorias y hacer negocios con otros dueños de agencia como tú."
+				},
+				{
+					"title": "Acompañamiento de consultores que han escalado su propia agencia",
+					"body": "Hablarás solo con consultores de agencias que han escalado su propio negocio, por lo que hablarán tu idioma y entenderán todos tus retos"
+				},
+				{
+					"title": "Acceso a Eventos presenciales exclusivos",
+					"body": "Invitaciones a nuestros encuentros privados para dueños de agencia. El lugar donde se forjan las alianzas que de verdad impulsan tu negocio."
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

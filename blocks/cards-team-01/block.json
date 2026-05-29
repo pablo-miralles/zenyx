@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/cards-team-01",
+	"title": "Zenyx cards team 01",
+	"description": "Seccion de equipo con titulo, texto y tarjetas repetibles (foto, nombre, cargo, LinkedIn).",
+	"category": "theme",
+	"icon": "groups",
+	"textdomain": "zenyx",
+	"keywords": [ "team", "equipo", "cards", "linkedin" ],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Nuestro equipo"
+		},
+		"intro": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+		},
+		"members": {
+			"type": "array",
+			"default": [
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": "",
+					"name": "Miguel Villamil",
+					"role": "CEO y Fundador Zenyx",
+					"linkedinUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": "",
+					"name": "Matías Balinot",
+					"role": "Responsable de soporte a alumnos",
+					"linkedinUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": "",
+					"name": "Jonathan Fernández",
+					"role": "Consultor de agencias",
+					"linkedinUrl": ""
+				},
+				{
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": "",
+					"name": "Borja Polo",
+					"role": "Responsable de I+D",
+					"linkedinUrl": ""
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

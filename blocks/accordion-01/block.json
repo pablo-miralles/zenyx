@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/accordion-01",
+	"title": "Zenyx accordion 01",
+	"description": "Seccion FAQ con acordeon: titular e items con pregunta y uno o mas parrafos.",
+	"category": "theme",
+	"icon": "editor-ul",
+	"textdomain": "zenyx",
+	"keywords": [
+		"faq",
+		"acordeon",
+		"preguntas"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Preguntas frecuentes sobre el Programa Libertad"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"question": "¿Esto es un curso para escalar agencias más?",
+					"paragraphs": [
+						"No. Zenyx no es un curso, es una aceleradora. No vienes a ver vídeos grabados, vienes a implementar con acompañamiento real, un sistema probado y una comunidad que ya recorrió tu camino."
+					]
+				},
+				{
+					"question": "¿Qué diferencia a Zenyx de una mentoría o formación online?",
+					"paragraphs": []
+				},
+				{
+					"question": "¿Cómo sé si el método funciona para mi tipo de agencia?",
+					"paragraphs": []
+				},
+				{
+					"question": "¿Necesito tener equipo para empezar?",
+					"paragraphs": []
+				},
+				{
+					"question": "¿Cuánto tiempo tendré que dedicarle?",
+					"paragraphs": []
+				},
+				{
+					"question": "¿Hay soporte durante el programa?",
+					"paragraphs": []
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"viewScript": "file:./build/view.js",
+	"render": "file:./render.php"
+}

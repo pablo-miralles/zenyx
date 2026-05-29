@@ -1,0 +1,113 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/caso-exito-content-01",
+	"title": "Zenyx caso exito content 01",
+	"description": "Seccion de retos, ejecucion, resultados y card final para single de caso.",
+	"category": "theme",
+	"icon": "excerpt-view",
+	"textdomain": "zenyx",
+	"keywords": ["caso", "retos", "resultados"],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"retosTitle": {
+			"type": "string",
+			"default": "Retos"
+		},
+		"retosTextLeft": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar diam dapibus lectus euismod suscipit et nec sem. Maecenas venenatis enim a nibh fermentum, eu elementum odio interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut accumsan mauris quis felis pellentesque placerat eget vitae mi."
+		},
+		"retosTextRight": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar diam dapibus lectus euismod suscipit et nec sem. Maecenas venenatis enim a nibh fermentum, eu elementum odio interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut accumsan mauris quis felis pellentesque placerat eget vitae mi."
+		},
+		"ejecucionTitle": {
+			"type": "string",
+			"default": "Ejecucion"
+		},
+		"ejecucionItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": "ej-1",
+					"step": "(01)",
+					"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pulvinar diam dapibus lectus euismod suscipit et nec sem."
+				},
+				{
+					"id": "ej-2",
+					"step": "(02)",
+					"text": "Maecenas venenatis enim a nibh fermentum, eu elementum odio interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus."
+				},
+				{
+					"id": "ej-3",
+					"step": "(03)",
+					"text": "Ut accumsan mauris quis felis pellentesque placerat eget vitae mi. Integer quis sem at velit ultricies fermentum."
+				},
+				{
+					"id": "ej-4",
+					"step": "(04)",
+					"text": "Donec vitae neque nec arcu elementum tincidunt. Sed blandit sem vel turpis volutpat, in volutpat lacus efficitur."
+				}
+			]
+		},
+		"resultadosTitle": {
+			"type": "string",
+			"default": "Resultados"
+		},
+		"resultadoItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": "res-1",
+					"value": "+20%",
+					"label": "Lorem ipsum dolor sit amet"
+				},
+				{
+					"id": "res-2",
+					"value": "+35%",
+					"label": "Lorem ipsum dolor sit amet"
+				},
+				{
+					"id": "res-3",
+					"value": "+20h",
+					"label": "Lorem ipsum dolor sit amet"
+				},
+				{
+					"id": "res-4",
+					"value": "+20h",
+					"label": "Lorem ipsum dolor sit amet"
+				}
+			]
+		},
+		"cardPretitle": {
+			"type": "string",
+			"default": ""
+		},
+		"cardTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"cardVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"cardPlayLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"cardImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"cardImageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

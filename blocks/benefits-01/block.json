@@ -1,0 +1,94 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/benefits-01",
+	"title": "Zenyx benefits 01",
+	"description": "Sección con título sticky y beneficios en collage al hacer scroll.",
+	"category": "theme",
+	"icon": "star-filled",
+	"textdomain": "zenyx",
+	"keywords": [
+		"benefits",
+		"ventajas",
+		"sticky",
+		"scroll",
+		"collage"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "¿Qué beneficios tiene el programa Zenyx?"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"contentType": "text",
+					"text": "Clientes de +2.000€ al mes o proyectos +6.000€",
+					"variant": "default",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"contentType": "text",
+					"text": "Libertad: irte una semana de vacaciones sin portatil",
+					"variant": "accent",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"contentType": "text",
+					"text": "Operativa 100% delegada",
+					"variant": "default",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"contentType": "text",
+					"text": "Margen bruto por proyecto de +50%",
+					"variant": "default",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"contentType": "text",
+					"text": "Tiempo de vida de tus clientes en +1 año",
+					"variant": "default",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				},
+				{
+					"contentType": "text",
+					"text": "EBITDA final de +35%",
+					"variant": "default",
+					"imageId": 0,
+					"imageUrl": "",
+					"imageAlt": ""
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

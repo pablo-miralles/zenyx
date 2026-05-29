@@ -1,0 +1,37 @@
+/**
+ * Block editor: full width for blocks, patterns, etc.
+ * Solo se carga en el iframe del editor (add_editor_style).
+ */
+
+.editor-styles-wrapper {
+	max-width: 100% !important;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+/* Contenedor del contenido (post/page editor) */
+.editor-styles-wrapper .wp-block-post-content,
+.editor-styles-wrapper .block-editor-block-list__layout {
+	max-width: 100% !important;
+}
+
+/* Contenedor raíz de bloques (WP 6.0+) */
+.editor-styles-wrapper .is-root-container {
+	max-width: 100% !important;
+}
+
+/* Bloques individuales sin ancho máximo por defecto */
+.editor-styles-wrapper .block-editor-block-list__block {
+	max-width: 100% !important;
+}
+
+.components-popover.block-editor-block-popover{
+	z-index: 999;
+}
+
+.editor-visual-editor__post-title-wrapper,
+.edit-post-visual-editor__post-title-wrapper {
+	margin-bottom: 2rem;
+}
+
+/* Tipografía y bloques del cuerpo en single: se aplican en el front vía .mwm-single-content en theme.css (Tailwind). */

@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/cards-01",
+	"title": "Zenyx cards 01",
+	"description": "Grid de tarjetas con forma recortada, texto revelado al hover y CTA.",
+	"category": "theme",
+	"icon": "screenoptions",
+	"textdomain": "zenyx",
+	"keywords": [
+		"cards",
+		"tarjetas",
+		"grid",
+		"escala"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "<p>Cómo escalar tu agencia:<br />Los 4 procesos que debes dominar</p>"
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"title": "¿Cómo conseguir clientes para tu agencia de forma predecible?",
+					"body": "Deja de depender del boca a boca. Trabajamos el Go-To-Market (GTM) de tu agencia para que dejes de ser uno más en el mercado"
+				},
+				{
+					"title": "Cómo sistematizar tu agencia para que funcione sin ti",
+					"body": "¿Todo pasa por ti? implementamos framework claros para que tus clientes se queden sin que tengas que estar encima de cada tarea."
+				},
+				{
+					"title": "Cómo construir una agencia rentable con márgenes sanos",
+					"body": "Te ayudamos a mejorar tu oferta y fijar mejor tus precios, controla tus márgenes para construir un negocio que genere beneficio real."
+				},
+				{
+					"title": "Cómo gestionar un equipo de agencia autónomo y eficaz",
+					"body": "Contratar es fácil, construir un equipo fiable no. Te enseñamos a delegar, liderar y crear responsables claros para que no tengas que empujar todo tú."
+				}
+			]
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Contacto"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"centerHeader": {
+			"type": "boolean",
+			"default": false
+		},
+		"cardTextSize": {
+			"type": "string",
+			"default": "normal"
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/journey-01",
+	"title": "Zenyx journey 01",
+	"description": "Seccion timeline horizontal con scroll y pin (GSAP).",
+	"category": "theme",
+	"icon": "chart-line",
+	"textdomain": "zenyx",
+	"keywords": [
+		"journey",
+		"timeline",
+		"scroll",
+		"horizontal"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "¿Tu día a día como dueño de agencia se parece a esto?"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"text": "Tus clientes exigen mucho, pero pagan poco",
+					"placement": "above"
+				},
+				{
+					"text": "Cada mes es una montaña rusa: un mes bien, dos meses mal",
+					"placement": "below"
+				},
+				{
+					"text": "Tienes que estar encima de todo y explicar 10 veces lo mismo",
+					"placement": "above"
+				},
+				{
+					"text": "Trabajas más horas que nunca, pero la rentabilidad no es muy alta",
+					"placement": "below"
+				},
+				{
+					"text": "Tienes equipo, pero si te vas de vacaciones, todo se para",
+					"placement": "above"
+				},
+				{
+					"text": "Pasas el día apagando fuegos en lugar de construir tu negocio.",
+					"placement": "below"
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"viewScript": "file:./build/view.js",
+	"render": "file:./render.php"
+}

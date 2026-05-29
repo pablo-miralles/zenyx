@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/marquee-media-01",
+	"title": "Zenyx marquee media 01",
+	"description": "Carrusel infinito de imagenes con titular y texto, proporcion original.",
+	"category": "theme",
+	"icon": "slides",
+	"textdomain": "zenyx",
+	"keywords": [ "marquee", "imagenes", "galeria", "media", "carrusel" ],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Así se vive los eventos para agencias de Zenyx"
+		},
+		"leadText": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+		},
+		"centerContent": {
+			"type": "boolean",
+			"default": true
+		},
+		"marqueeDurationSeconds": {
+			"type": "number",
+			"default": 40
+		},
+		"imageIds": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "number"
+			}
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"viewScript": "file:./build/view.js",
+	"render": "file:./render.php"
+}

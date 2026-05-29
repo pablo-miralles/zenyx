@@ -1,0 +1,36 @@
+{
+	"name": "zenyx-theme",
+	"version": "1.0.0",
+	"description": "Tailwind CSS build for zenyx theme",
+	"private": true,
+	"scripts": {
+		"dev": "tailwindcss -i ./assets/src/tailwind.css -o ./assets/dist/theme.css --watch",
+		"build": "tailwindcss -i ./assets/src/tailwind.css -o ./assets/dist/theme.css --minify",
+		"build:blocks": "node scripts/blocks.js build",
+		"watch:blocks": "node scripts/blocks.js watch",
+		"build:core-group-extension": "wp-scripts build --webpack-src-dir=assets/src/editor/core-group-extension --output-path=assets/dist/core-group-extension",
+		"watch:core-group-extension": "wp-scripts start --webpack-src-dir=assets/src/editor/core-group-extension --output-path=assets/dist/core-group-extension",
+		"build:group-section-color-transition": "wp-scripts build --webpack-src-dir=assets/src/group-section-color-transition --output-path=assets/dist/group-section-color-transition",
+		"watch:group-section-color-transition": "wp-scripts start --webpack-src-dir=assets/src/group-section-color-transition --output-path=assets/dist/group-section-color-transition",
+		"build:lenis": "wp-scripts build --webpack-src-dir=assets/src/lenis --output-path=assets/dist/lenis",
+		"watch:lenis": "wp-scripts start --webpack-src-dir=assets/src/lenis --output-path=assets/dist/lenis",
+		"build:block:hero-01": "wp-scripts build --webpack-src-dir=blocks/hero-01/src --output-path=blocks/hero-01/build index.js view.js",
+		"watch:block:hero-01": "wp-scripts start --webpack-src-dir=blocks/hero-01/src --output-path=blocks/hero-01/build index.js view.js",
+		"build:block:hero-03": "wp-scripts build --webpack-src-dir=blocks/hero-03/src --output-path=blocks/hero-03/build",
+		"watch:block:hero-03": "wp-scripts start --webpack-src-dir=blocks/hero-03/src --output-path=blocks/hero-03/build",
+		"build:block:media-text-01": "wp-scripts build --webpack-src-dir=blocks/media-text-01/src --output-path=blocks/media-text-01/build index.js view.js",
+		"watch:block:media-text-01": "wp-scripts start --webpack-src-dir=blocks/media-text-01/src --output-path=blocks/media-text-01/build index.js view.js"
+	},
+	"devDependencies": {
+		"@tailwindcss/cli": "^4.1.12",
+		"@wordpress/scripts": "^30.27.0",
+		"tailwindcss": "^4.1.12"
+	},
+	"dependencies": {
+		"@fancyapps/ui": "^6.1.13",
+		"gsap": "^3.14.2",
+		"lenis": "^1.3.21",
+		"notyf": "^3.10.0",
+		"swiper": "^12.1.3"
+	}
+}

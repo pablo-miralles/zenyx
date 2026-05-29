@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/text-02",
+	"title": "Zenyx text 02",
+	"description": "Seccion de texto con titular y dos parrafos alineados a la izquierda.",
+	"category": "theme",
+	"icon": "editor-paragraph",
+	"textdomain": "zenyx",
+	"keywords": [
+		"texto",
+		"podcast",
+		"intro"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "¿De qué va este podcast para agencias?"
+		},
+		"paragraph1": {
+			"type": "string",
+			"default": "En cada episodio, descubrirás estrategias prácticas sobre escalabilidad, captación de clientes de alto valor, libertad operativa y sistemas que funcionan"
+		},
+		"paragraph2": {
+			"type": "string",
+			"default": "Caos en las Agencias es el podcast presentado por Miguel Villamil, fundador de Zenyx. Está diseñado para CEOs y founders de agencias que buscan escalar a más de 83.333€ al mes con +35% de rentabilidad y sin estar atrapados en la operativa diaria."
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

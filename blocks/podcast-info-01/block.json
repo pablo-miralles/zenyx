@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/podcast-info-01",
+	"title": "Zenyx podcast info 01",
+	"description": "Seccion podcast: para quien es (grid con checks) y temas en tarjeta.",
+	"category": "theme",
+	"icon": "microphone",
+	"textdomain": "zenyx",
+	"keywords": [ "podcast", "info", "temas" ],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"leftKicker": {
+			"type": "string",
+			"default": "Este podcast es para ti si…"
+		},
+		"rightKicker": {
+			"type": "string",
+			"default": "Hablamos de…"
+		},
+		"leftItems": {
+			"type": "array",
+			"default": [
+				{ "text": "Sientes que haces de todo en tu agencia" },
+				{ "text": "Quieres escalar pero sin trabajar más" },
+				{ "text": "Buscas libertad sin perder resultados" },
+				{ "text": "Estás montando equipo o proceso interno" }
+			]
+		},
+		"topicItems": {
+			"type": "array",
+			"default": [
+				{ "text": "Gestión" },
+				{ "text": "Ventas" },
+				{ "text": "Rentabilidad" },
+				{ "text": "Negocios" }
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

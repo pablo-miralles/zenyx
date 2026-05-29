@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/levels-01",
+	"title": "Zenyx levels 01",
+	"description": "Niveles del programa con filas informativas y panel lateral.",
+	"category": "theme",
+	"icon": "editor-ol",
+	"textdomain": "zenyx",
+	"keywords": ["niveles", "programa", "precios", "escala"],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "<p>Niveles del programa para escalar agencias</p>"
+		},
+		"intro": {
+			"type": "string",
+			"default": "<p>Por eso, nuestro programa no es un \"café para todos\". Está estructurado en 3 niveles que atacan los problemas específicos de tu nivel actual.</p>"
+		},
+		"levels": {
+			"type": "array",
+			"default": [
+				{
+					"panelVariant": "light",
+					"levelTitle": "Nivel 1",
+					"desdeLabel": "Desde",
+					"price": "4.500€",
+					"paraQuienTitle": "¿Para quién es?",
+					"paraQuienBody": "<p>Freelancers y agencias facturando más de 30.000€/mes</p>",
+					"situacionTitle": "Tu situación",
+					"situacionBody": "<p>La agencia funciona, pero sigue necesitando tu visión para las grandes decisiones. Tu objetivo ahora es que el negocio sea un activo que genere riqueza sin tu implicación en el día a día.</p>",
+					"objetivoTitle": "El objetivo",
+					"objetivoBody": "<p>Desarrollar a tu equipo de liderazgo para que dirija la empresa. Te enfocarás en la visión a largo plazo, nuevas oportunidades de negocio o, simplemente, en disfrutar de la libertad que te has ganado.</p>"
+				},
+				{
+					"panelVariant": "dark",
+					"levelTitle": "Nivel 2",
+					"desdeLabel": "Desde",
+					"price": "6.000€",
+					"paraQuienTitle": "¿Para quién es?",
+					"paraQuienBody": "<p>Agencias facturando entre 10.000€ y 30.000€/mes</p>",
+					"situacionTitle": "Tu situación",
+					"situacionBody": "<p>Has crecido, pero a costa del caos. Tu rentabilidad es más baja que nunca, fichar talento es un dolor de cabeza y sigues siendo el cuello de botella. El crecimiento te ha traído más estrés, no más libertad.</p>",
+					"objetivoTitle": "El objetivo",
+					"objetivoBody": "<p>Implementar los procesos para que tu equipo entregue calidad sin tu supervisión. Aprenderás a contratar y liderar para asegurar márgenes sanos y construir un negocio que no dependa de ti.</p>"
+				},
+				{
+					"panelVariant": "accent",
+					"levelTitle": "Nivel 3",
+					"desdeLabel": "Desde",
+					"price": "9.000€",
+					"paraQuienTitle": "¿Para quién es?",
+					"paraQuienBody": "<p>Agencias facturando más de 30.000€/mes</p>",
+					"situacionTitle": "Tu situación",
+					"situacionBody": "<p>La agencia funciona, pero sigue necesitando tu visión para las grandes decisiones. Tu objetivo ahora es que el negocio sea un activo que genere riqueza sin tu implicación en el día a día.</p>",
+					"objetivoTitle": "El objetivo",
+					"objetivoBody": "<p>Desarrollar a tu equipo de liderazgo para que dirija la empresa. Te enfocarás en la visión a largo plazo, nuevas oportunidades de negocio o, simplemente, en disfrutar de la libertad que te has ganado.</p>"
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

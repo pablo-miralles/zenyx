@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/cta-01",
+	"title": "Zenyx cta 01",
+	"description": "Llamada a la acción con titular, degradado y botón.",
+	"category": "theme",
+	"icon": "megaphone",
+	"textdomain": "zenyx",
+	"keywords": [
+		"cta",
+		"call to action",
+		"banner",
+		"button"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "¿Te gustaría aplicar esto con ayuda y no solo leerlo?"
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		},
+		"theme": {
+			"type": "string",
+			"default": "oscuro"
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Descubre cómo podemos ayudarte"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"hideArrowOnMobile": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,106 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/hero-05",
+	"title": "Zenyx hero 05",
+	"description": "Hero para podcast con enlaces de plataforma, meta y media recortada.",
+	"category": "theme",
+	"icon": "cover-image",
+	"textdomain": "zenyx",
+	"keywords": [
+		"hero",
+		"podcast",
+		"spotify",
+		"media"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"showNav": {
+			"type": "boolean",
+			"default": true
+		},
+		"navItems": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Home",
+					"url": "/"
+				},
+				{
+					"label": "Recursos",
+					"url": ""
+				},
+				{
+					"label": "Podcast",
+					"url": ""
+				}
+			]
+		},
+		"heading": {
+			"type": "string",
+			"default": "Caos en las Agencias"
+		},
+		"lead": {
+			"type": "string",
+			"default": "Un podcast para CEOs/Founders de agencias que quieren saber como escalar a +100.000€ al mes, con rentabilidades del +35%, gracias a liberarse de las tareas del día a día."
+		},
+		"platformLinks": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Spotify",
+					"url": "",
+					"slug": "spotify"
+				},
+				{
+					"label": "Apple podcast",
+					"url": "",
+					"slug": "apple"
+				},
+				{
+					"label": "Youtube",
+					"url": "",
+					"slug": "youtube"
+				}
+			]
+		},
+		"metaItems": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Categoría",
+					"value": "Empresas y negocios"
+				},
+				{
+					"label": "Episodios",
+					"value": "40"
+				},
+				{
+					"label": "Actividad",
+					"value": "2020 - Actualidad"
+				}
+			]
+		},
+		"asideHighlight": {
+			"type": "string",
+			"default": "Top podcast en crecimiento de agencias en Spotify y Youtube"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

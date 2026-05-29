@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/text-links-01",
+	"title": "Zenyx text links 01",
+	"description": "Seccion con titular, intro y tres columnas con enlace tipo CTA.",
+	"category": "theme",
+	"icon": "grid-view",
+	"textdomain": "zenyx",
+	"keywords": [
+		"links",
+		"cta",
+		"columns"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"mainHeading": {
+			"type": "string",
+			"default": "Consultoría para agencias<br>que quieren resultados "
+		},
+		"introLabel": {
+			"type": "string",
+			"default": "¿Qué es Zenyx? "
+		},
+		"introHighlight": {
+			"type": "string",
+			"default": "Zenyx es la primera aceleradora en España 100% enfocada en dueños de agencias."
+		},
+		"columns": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Programa de aceleración para agencias práctico",
+					"buttonText": "Programación",
+					"buttonUrl": "",
+					"opensInNewTab": false,
+					"buttonVariant": "primary"
+				},
+				{
+					"title": "Eventos para<br>agencias ",
+					"buttonText": "Eventos",
+					"buttonUrl": "",
+					"opensInNewTab": false,
+					"buttonVariant": "light"
+				},
+				{
+					"title": "Una comunidad de dueños de agencia real",
+					"buttonText": "Casos de éxito",
+					"buttonUrl": "",
+					"opensInNewTab": false,
+					"buttonVariant": "light"
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

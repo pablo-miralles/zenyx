@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/text-01",
+	"title": "Zenyx text 01",
+	"description": "Seccion de texto con titular, lead en acento y tres columnas.",
+	"category": "theme",
+	"icon": "editor-paragraph",
+	"textdomain": "zenyx",
+	"keywords": [
+		"texto",
+		"columnas",
+		"mision"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "¿Cuál es nuestra misión en tu agencia?"
+		},
+		"lead": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+		},
+		"columns": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Construcción",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+				},
+				{
+					"title": "Crecimiento",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+				},
+				{
+					"title": "Expansión",
+					"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

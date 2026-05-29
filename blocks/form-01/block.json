@@ -1,0 +1,79 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/form-01",
+	"title": "Zenyx form 01",
+	"description": "Seccion de contacto con formulario CF7 y datos de contacto.",
+	"category": "theme",
+	"icon": "email-alt",
+	"textdomain": "zenyx",
+	"keywords": [ "form", "contacto", "cf7", "contact form 7" ],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"breadcrumbHome": {
+			"type": "string",
+			"default": "Home"
+		},
+		"breadcrumbCurrent": {
+			"type": "string",
+			"default": "Contacto"
+		},
+		"breadcrumbHomeUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"heroTitle": {
+			"type": "string",
+			"default": "¿Hablamos de\ntu agencia?"
+		},
+		"heroDescription": {
+			"type": "string",
+			"default": "Si estas listo para escalar tu agencia con un proceso claro, apoyo real y resultados que se pueden tocar, completa el formulario y uno de nuestros consultores te contactara personalmente."
+		},
+		"cf7Shortcode": {
+			"type": "string",
+			"default": ""
+		},
+		"bottomTitle": {
+			"type": "string",
+			"default": "¿Prefieres otra forma de contactarnos?"
+		},
+		"scheduleLabel": {
+			"type": "string",
+			"default": "Horario"
+		},
+		"scheduleText": {
+			"type": "string",
+			"default": "Lunes a viernes\nDe 08:00 a 22:00\n\nSabados\nDe 08:00 a 14:00"
+		},
+		"locationLabel": {
+			"type": "string",
+			"default": "Ubicacion"
+		},
+		"locationText": {
+			"type": "string",
+			"default": "C. Recogidas, 24, Portal A, escalera B, 1oC, Centro, 18002 Granada"
+		},
+		"phoneLabel": {
+			"type": "string",
+			"default": "Telefono"
+		},
+		"phoneText": {
+			"type": "string",
+			"default": "Lorem Ipsum"
+		},
+		"emailLabel": {
+			"type": "string",
+			"default": "Email"
+		},
+		"emailText": {
+			"type": "string",
+			"default": "Lorem Ipsum"
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

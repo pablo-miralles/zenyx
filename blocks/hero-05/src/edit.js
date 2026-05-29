@@ -1,0 +1,427 @@
+import {
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
+	RichText,
+	useBlockProps,
+} from '@wordpress/block-editor';
+import { Button, PanelBody, SelectControl, TextControl, ToggleControl } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+
+const ALLOWED_IMAGE_TYPES = [ 'image' ];
+
+const DEFAULT_NAV = [
+	{ label: 'Home', url: '/' },
+	{ label: 'Recursos', url: '' },
+	{ label: 'Podcast', url: '' },
+];
+
+const DEFAULT_PLATFORMS = [
+	{ label: 'Spotify', url: '', slug: 'spotify' },
+	{ label: 'Apple podcast', url: '', slug: 'apple' },
+	{ label: 'Youtube', url: '', slug: 'youtube' },
+];
+
+const DEFAULT_META = [
+	{ label: 'Categoría', value: 'Empresas y negocios' },
+	{ label: 'Episodios', value: '40' },
+	{ label: 'Actividad', value: '2020 - Actualidad' },
+];
+
+const SLUG_OPTIONS = [
+	{ label: 'Spotify', value: 'spotify' },
+	{ label: 'Apple Podcast', value: 'apple' },
+	{ label: 'Youtube', value: 'youtube' },
+];
+
+function PlatformIcon( { slug } ) {
+	if ( slug === 'apple' ) {
+		return (
+			<svg
+				className="mwm-hero-05__platform-icon shrink-0"
+				width="19"
+				height="20"
+				viewBox="0 0 19 20"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				aria-hidden="true"
+				focusable="false"
+			>
+				<path
+					d="M10.9572 11.9978C10.5692 11.5887 9.88888 11.3252 9.08471 11.3252C8.28054 11.3252 7.59957 11.5874 7.21189 11.9978C7.0133 12.1975 6.89163 12.4615 6.86926 12.7421C6.80337 13.346 6.84014 13.8671 6.91094 14.6985C6.97775 15.491 7.10585 16.5485 7.27318 17.6247C7.39209 18.3905 7.48893 18.8039 7.57658 19.1005C7.71879 19.5798 8.25173 20 9.08471 20C9.91769 20 10.4497 19.5807 10.5928 19.1005C10.6805 18.8045 10.7776 18.3914 10.8962 17.6247C11.0636 16.5485 11.1917 15.4919 11.2588 14.6985C11.329 13.8671 11.3657 13.3466 11.3002 12.7421C11.2778 12.4612 11.1564 12.1975 10.9572 11.9978ZM6.97162 8.35186C6.97162 9.52097 7.9186 10.4686 9.08655 10.4686C10.2545 10.4686 11.2015 9.52127 11.2015 8.35186C11.2015 7.18306 10.2545 6.23538 9.08655 6.23538C7.9186 6.23538 6.97162 7.18306 6.97162 8.35186ZM9.06019 3.64363e-05C4.11473 0.0138376 0.062004 4.02904 0.000710551 8.97812C-0.0489372 12.9872 2.50823 16.4169 6.07949 17.6731C6.14324 17.6955 6.21311 17.6621 6.23548 17.598C6.24192 17.5796 6.24376 17.56 6.24131 17.5403C6.1938 17.229 6.14998 16.9168 6.10952 16.6089C6.09604 16.5003 6.02617 16.4071 5.92626 16.3629C3.01083 15.0899 1.13679 12.1984 1.16406 9.01523C1.20574 4.70959 4.71939 1.19889 9.02219 1.16424C13.4209 1.12866 17.0118 4.70008 17.0118 9.09374C17.0081 12.2493 15.1387 15.1027 12.2484 16.3642C12.1485 16.4083 12.0789 16.5016 12.0648 16.6101C12.024 16.9211 11.9802 17.2312 11.9333 17.5409C11.9229 17.6072 11.9683 17.6691 12.0342 17.6793C12.0544 17.6826 12.0746 17.6805 12.0933 17.6734C15.6299 16.4289 18.173 13.0525 18.173 9.09282C18.1736 4.07044 14.0832 -0.0140714 9.06019 3.64363e-05ZM8.89654 4.17196C11.617 4.06738 13.907 6.18938 14.0115 8.91187C14.0139 8.97321 14.0152 9.03455 14.0152 9.09558C14.0158 10.457 13.4522 11.7571 12.4583 12.6869C12.3774 12.7633 12.3342 12.8713 12.3394 12.9829C12.3578 13.3212 12.351 13.6503 12.329 14.0207C12.3253 14.087 12.3759 14.1437 12.4421 14.1474C12.4681 14.1492 12.4942 14.1416 12.5159 14.1275C14.18 12.9933 15.1764 11.1096 15.1767 9.09497C15.1733 5.7278 12.443 3.00071 9.07858 3.00377C9.00227 3.00377 8.92535 3.0053 8.84873 3.00868C5.62806 3.1332 3.04363 5.79037 3.00317 9.01646C2.97743 11.059 3.97651 12.9789 5.66392 14.1287C5.71817 14.1658 5.79202 14.152 5.82911 14.0977C5.84412 14.0756 5.85148 14.049 5.84995 14.0223C5.82543 13.6766 5.82175 13.3295 5.83922 12.9832C5.84535 12.8716 5.80183 12.7633 5.72031 12.6872C4.69273 11.7264 4.12668 10.3699 4.16621 8.9634C4.24467 6.37216 6.30873 4.28145 8.89654 4.17196Z"
+					fill="#A877E8"
+				/>
+			</svg>
+		);
+	}
+	if ( slug === 'youtube' ) {
+		return (
+			<svg
+				className="mwm-hero-05__platform-icon shrink-0"
+				width="21"
+				height="20"
+				viewBox="0 0 21 20"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+				aria-hidden="true"
+				focusable="false"
+			>
+				<path
+					d="M20.5611 5.26534C20.3196 4.41056 19.6082 3.73746 18.7046 3.50902C17.0669 3.09385 10.5 3.09385 10.5 3.09385C10.5 3.09385 3.93312 3.09385 2.29543 3.50902C1.39192 3.73746 0.6803 4.41056 0.43882 5.26534C0 6.81456 0 10.0469 0 10.0469C0 10.0469 0 13.2792 0.43882 14.8286C0.6803 15.6833 1.39192 16.3564 2.29543 16.5849C3.93312 17 10.5 17 10.5 17C10.5 17 17.0669 17 18.7046 16.5849C19.6082 16.3564 20.3196 15.6833 20.5611 14.8286C21 13.2792 21 10.0469 21 10.0469C21 10.0469 21 6.81456 20.5611 5.26534Z"
+					fill="#ED1D24"
+				/>
+				<path d="M8.33594 12.9814L13.8246 10.0469L8.33594 7.11198V12.9814Z" fill="white" />
+			</svg>
+		);
+	}
+	return (
+		<svg
+			className="mwm-hero-05__platform-icon shrink-0"
+			width="20"
+			height="20"
+			viewBox="0 0 20 20"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M10 0C8.02219 0 6.08878 0.586483 4.44428 1.68527C2.79983 2.78412 1.51811 4.34592 0.761186 6.17315C0.00432262 8.00044 -0.193707 10.0111 0.192171 11.9509C0.577991 13.8907 1.53038 15.6725 2.92892 17.0711C4.32746 18.4696 6.10932 19.422 8.04912 19.8078C9.98893 20.1937 11.9996 19.9957 13.8268 19.2388C15.6541 18.4819 17.2159 17.2002 18.3147 15.5557C19.4135 13.9112 20 11.9778 20 10C20 7.34782 18.9464 4.8043 17.0711 2.92895C15.1957 1.05355 12.6522 0 10 0ZM14.589 14.4214C14.5465 14.4921 14.4903 14.5536 14.4238 14.6023C14.3572 14.6511 14.2816 14.6861 14.2014 14.7054C14.1212 14.7247 14.038 14.7279 13.9566 14.7148C13.8751 14.7016 13.7971 14.6725 13.7271 14.6289C11.3807 13.1923 8.42779 12.8731 4.94814 13.6632C4.86896 13.6821 4.78687 13.6851 4.70653 13.672C4.62625 13.6589 4.54929 13.6299 4.48029 13.5869C4.41123 13.5439 4.35143 13.4875 4.3043 13.4211C4.25718 13.3548 4.22379 13.2797 4.20593 13.2003C4.18691 13.1207 4.18388 13.0381 4.19685 12.9572C4.20989 12.8763 4.23869 12.7989 4.28168 12.7292C4.32467 12.6595 4.38104 12.599 4.44742 12.5511C4.51385 12.5032 4.58908 12.4689 4.66878 12.4501C8.47567 11.5802 11.7478 11.9553 14.3815 13.5674C14.522 13.6534 14.6228 13.7915 14.6616 13.9515C14.7006 14.1116 14.6744 14.2806 14.589 14.4214ZM15.8101 11.6999C15.6986 11.8715 15.5254 11.9936 15.3264 12.0411C15.1273 12.0887 14.9177 12.0579 14.7406 11.9553C11.7061 10.2626 8.12382 9.84351 4.78053 10.7901C4.67651 10.8481 4.5608 10.8821 4.44195 10.8895C4.32304 10.897 4.20401 10.8777 4.09354 10.8332C3.98306 10.7887 3.88399 10.72 3.80353 10.6322C3.72308 10.5444 3.66327 10.4396 3.62854 10.3257C3.59381 10.2117 3.58502 10.0915 3.60283 9.97373C3.62063 9.85595 3.66455 9.74369 3.73139 9.6451C3.79824 9.54651 3.88632 9.46418 3.98911 9.40403C4.09197 9.34394 4.20692 9.30755 4.3256 9.29769C6.1917 8.7605 8.14633 8.60165 10.0747 8.83057C12.003 9.05944 13.8662 9.67139 15.5547 10.6305C15.7263 10.742 15.8484 10.9152 15.8959 11.1142C15.9434 11.3132 15.9127 11.5229 15.8101 11.6999ZM15.9138 8.86672C12.7215 6.95129 7.38232 6.77571 4.30169 7.70948C4.06463 7.78149 3.80865 7.75631 3.59014 7.63953C3.37164 7.52281 3.20845 7.32405 3.13649 7.08697C3.06453 6.84995 3.08966 6.59397 3.20642 6.37543C3.32312 6.15695 3.5219 5.99375 3.75897 5.92181C7.29453 4.85236 13.1604 5.05987 16.8716 7.25457C17.0623 7.39113 17.1947 7.59446 17.2424 7.82421C17.2901 8.0539 17.2495 8.29315 17.1288 8.49438C17.0081 8.69554 16.8161 8.84389 16.591 8.90991C16.3658 8.97599 16.1241 8.95486 15.9138 8.85076V8.86672Z"
+				fill="#1ED760"
+			/>
+		</svg>
+	);
+}
+
+export default function Edit( { attributes, setAttributes } ) {
+	const {
+		showNav = true,
+		navItems = DEFAULT_NAV,
+		heading = '',
+		lead = '',
+		platformLinks = DEFAULT_PLATFORMS,
+		metaItems = DEFAULT_META,
+		asideHighlight = '',
+		imageId = 0,
+		imageUrl = '',
+		imageAlt = '',
+	} = attributes;
+
+	const safeNav = Array.isArray( navItems ) && navItems.length ? navItems : DEFAULT_NAV;
+	const safePlatforms = Array.isArray( platformLinks ) && platformLinks.length ? platformLinks : DEFAULT_PLATFORMS;
+	const safeMeta = Array.isArray( metaItems ) && metaItems.length ? metaItems : DEFAULT_META;
+
+	const blockProps = useBlockProps( {
+		className: 'mwm-hero-05 relative w-full overflow-hidden bg-protagonista',
+		style: { paddingTop: 'calc(var(--header-height, 68px))' },
+	} );
+
+	const updateNav = ( index, field, value ) => {
+		const next = [ ...safeNav ];
+		next[ index ] = {
+			...( next[ index ] || { label: '', url: '' } ),
+			[ field ]: value ?? '',
+		};
+		setAttributes( { navItems: next } );
+	};
+
+	const addNav = () => {
+		setAttributes( { navItems: [ ...safeNav, { label: __( 'Enlace', 'zenyx' ), url: '' } ] } );
+	};
+
+	const removeNav = ( index ) => {
+		if ( safeNav.length <= 1 ) {
+			return;
+		}
+		setAttributes( { navItems: safeNav.filter( ( _, i ) => i !== index ) } );
+	};
+
+	const updatePlatform = ( index, field, value ) => {
+		const next = [ ...safePlatforms ];
+		next[ index ] = {
+			...( next[ index ] || { label: '', url: '', slug: 'spotify' } ),
+			[ field ]: value ?? '',
+		};
+		setAttributes( { platformLinks: next } );
+	};
+
+	const updateMeta = ( index, field, value ) => {
+		const next = [ ...safeMeta ];
+		next[ index ] = {
+			...( next[ index ] || { label: '', value: '' } ),
+			[ field ]: value ?? '',
+		};
+		setAttributes( { metaItems: next } );
+	};
+
+	const addMeta = () => {
+		setAttributes( {
+			metaItems: [ ...safeMeta, { label: __( 'Etiqueta', 'zenyx' ), value: '' } ],
+		} );
+	};
+
+	const removeMeta = ( index ) => {
+		if ( safeMeta.length <= 1 ) {
+			return;
+		}
+		setAttributes( { metaItems: safeMeta.filter( ( _, i ) => i !== index ) } );
+	};
+
+	return (
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Imagen destacada', 'zenyx' ) } initialOpen={ true }>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) =>
+								setAttributes( {
+									imageId: media.id || 0,
+									imageUrl: media.url || '',
+									imageAlt: media.alt || '',
+								} )
+							}
+							allowedTypes={ ALLOWED_IMAGE_TYPES }
+							value={ imageId }
+							render={ ( { open } ) => (
+								<>
+									{ imageUrl && (
+										<img
+											src={ imageUrl }
+											alt=""
+											style={ { width: '100%', marginBottom: '8px', objectFit: 'cover' } }
+										/>
+									) }
+									<Button variant={ imageId ? 'secondary' : 'primary' } onClick={ open }>
+										{ imageId ? __( 'Reemplazar imagen', 'zenyx' ) : __( 'Seleccionar imagen', 'zenyx' ) }
+									</Button>
+									{ imageId > 0 && (
+										<Button
+											variant="link"
+											isDestructive
+											onClick={ () => setAttributes( { imageId: 0, imageUrl: '', imageAlt: '' } ) }
+											style={ { marginLeft: '8px' } }
+										>
+											{ __( 'Eliminar', 'zenyx' ) }
+										</Button>
+									) }
+								</>
+							) }
+						/>
+					</MediaUploadCheck>
+				</PanelBody>
+
+				<PanelBody title={ __( 'Navegacion superior', 'zenyx' ) } initialOpen={ false }>
+					<ToggleControl
+						label={ __( 'Mostrar fila de enlaces', 'zenyx' ) }
+						checked={ !! showNav }
+						onChange={ ( value ) => setAttributes( { showNav: !! value } ) }
+						__nextHasNoMarginBottom
+					/>
+					{ safeNav.map( ( item, index ) => (
+						<div key={ `nav-${ index }` } style={ { marginBottom: '12px' } }>
+							<TextControl
+								label={ __( 'Texto', 'zenyx' ) }
+								value={ item?.label || '' }
+								onChange={ ( value ) => updateNav( index, 'label', value ) }
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+							<TextControl
+								label={ __( 'URL', 'zenyx' ) }
+								value={ item?.url || '' }
+								onChange={ ( value ) => updateNav( index, 'url', value ) }
+								type="url"
+								placeholder="https:// o /ruta"
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+							<Button variant="link" isDestructive onClick={ () => removeNav( index ) } disabled={ safeNav.length <= 1 }>
+								{ __( 'Eliminar item', 'zenyx' ) }
+							</Button>
+						</div>
+					) ) }
+					<Button variant="secondary" onClick={ addNav }>
+						{ __( 'Agregar enlace', 'zenyx' ) }
+					</Button>
+				</PanelBody>
+
+				<PanelBody title={ __( 'Plataformas', 'zenyx' ) } initialOpen={ false }>
+					{ safePlatforms.map( ( item, index ) => (
+						<div key={ `plat-${ index }` } style={ { marginBottom: '12px' } }>
+							<SelectControl
+								label={ __( 'Icono', 'zenyx' ) }
+								value={ item?.slug || 'spotify' }
+								options={ SLUG_OPTIONS }
+								onChange={ ( value ) => updatePlatform( index, 'slug', value ) }
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+							<TextControl
+								label={ __( 'Texto', 'zenyx' ) }
+								value={ item?.label || '' }
+								onChange={ ( value ) => updatePlatform( index, 'label', value ) }
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+							<TextControl
+								label={ __( 'URL', 'zenyx' ) }
+								value={ item?.url || '' }
+								onChange={ ( value ) => updatePlatform( index, 'url', value ) }
+								type="url"
+								placeholder="https://"
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+						</div>
+					) ) }
+				</PanelBody>
+
+				<PanelBody title={ __( 'Meta (categoria, etc.)', 'zenyx' ) } initialOpen={ false }>
+					{ safeMeta.map( ( item, index ) => (
+						<div key={ `meta-${ index }` } style={ { marginBottom: '12px' } }>
+							<TextControl
+								label={ __( 'Etiqueta', 'zenyx' ) }
+								value={ item?.label || '' }
+								onChange={ ( value ) => updateMeta( index, 'label', value ) }
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+							<TextControl
+								label={ __( 'Valor', 'zenyx' ) }
+								value={ item?.value || '' }
+								onChange={ ( value ) => updateMeta( index, 'value', value ) }
+								__next40pxDefaultSize
+								__nextHasNoMarginBottom
+							/>
+							<Button variant="link" isDestructive onClick={ () => removeMeta( index ) } disabled={ safeMeta.length <= 1 }>
+								{ __( 'Eliminar fila', 'zenyx' ) }
+							</Button>
+						</div>
+					) ) }
+					<Button variant="secondary" onClick={ addMeta }>
+						{ __( 'Agregar fila', 'zenyx' ) }
+					</Button>
+				</PanelBody>
+			</InspectorControls>
+
+			<section { ...blockProps } data-light="">
+				<div className="mwm-max-1">
+					<div className="mwm-hero-05__shell flex min-h-[620px] w-full flex-col gap-[60px] px-[35px] pb-[35px] pt-3 lg:min-h-[768px]">
+						{ showNav && safeNav.length > 0 && (
+							<nav className="mwm-hero-05__nav flex flex-wrap items-center gap-3" aria-label={ __( 'Migas de pan', 'zenyx' ) }>
+								{ safeNav.map( ( item, index ) => {
+									const url = String( item?.url || '' ).trim();
+									const hasUrl = url.length > 0;
+									const isLast = index === safeNav.length - 1;
+									const isLink = ! isLast && hasUrl;
+									if ( isLink ) {
+										return (
+											<a
+												key={ `nav-${ index }` }
+												className="mwm-hero-05__nav-link text-sm text-neutral-light no-underline transition-colors hover:text-acento-hover hover:no-underline"
+												href={ url }
+												onClick={ ( e ) => e.preventDefault() }
+											>
+												{ item?.label || '' }
+											</a>
+										);
+									}
+									return (
+										<span
+											key={ `nav-${ index }` }
+											className="mwm-hero-05__nav-text text-sm text-neutral-light"
+											{ ...( isLast ? { 'aria-current': 'page' } : {} ) }
+										>
+											{ item?.label || '' }
+										</span>
+									);
+								} ) }
+							</nav>
+						) }
+
+						<div className="mwm-hero-05__row flex min-h-0 flex-1 flex-col items-stretch gap-6 lg:flex-row lg:items-end lg:gap-6">
+							<div className="mwm-hero-05__left flex min-h-0 min-w-0 flex-1 flex-col justify-between gap-6 self-stretch lg:gap-6">
+								<div className="mwm-hero-05__copy flex flex-col justify-end gap-6">
+									<RichText
+										tagName="h1"
+										className="mwm-hero-05__title max-w-[636px] text-[2rem] font-heading leading-[1.2] text-white md:text-5xl"
+										value={ heading }
+										onChange={ ( value ) => setAttributes( { heading: value ?? '' } ) }
+										placeholder={ __( 'Titular...', 'zenyx' ) }
+										allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
+									/>
+									<RichText
+										tagName="p"
+										className="mwm-hero-05__lead max-w-[636px] text-xl leading-[1.2] text-neutral-light"
+										value={ lead }
+										onChange={ ( value ) => setAttributes( { lead: value ?? '' } ) }
+										placeholder={ __( 'Descripcion...', 'zenyx' ) }
+										allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
+									/>
+								</div>
+
+								<div className="mwm-hero-05__platforms flex flex-wrap items-start gap-6">
+									{ safePlatforms.map( ( p, i ) => {
+										const pUrl = String( p?.url || '' ).trim();
+										const slug = p?.slug || 'spotify';
+										const Tag = pUrl ? 'a' : 'div';
+										const props =
+											Tag === 'a'
+												? {
+														href: pUrl,
+														onClick: ( e ) => e.preventDefault(),
+														className: 'mwm-hero-05__platform border border-neutral-light',
+														target: '_blank',
+														rel: 'noopener noreferrer',
+												  }
+												: {
+														className:
+															'mwm-hero-05__platform border border-neutral-light mwm-hero-05__platform--static',
+												  };
+										return (
+											<Tag key={ `plat-${ i }` } { ...props }>
+												<PlatformIcon slug={ slug } />
+												<span className="mwm-hero-05__platform-label text-base text-neutral-light">{ p?.label || '' }</span>
+											</Tag>
+										);
+									} ) }
+								</div>
+
+								<div className="mwm-hero-05__meta flex flex-wrap gap-6">
+									{ safeMeta.map( ( row, i ) => (
+										<div key={ `meta-${ i }` } className="mwm-hero-05__meta-col flex min-w-0 flex-1 flex-col gap-3">
+											<p className="mwm-hero-05__meta-label text-base text-white">{ row?.label || '' }</p>
+											<p className="mwm-hero-05__meta-value text-base text-neutral-light">{ row?.value || '' }</p>
+										</div>
+									) ) }
+								</div>
+							</div>
+
+							<div className="mwm-hero-05__right flex w-full shrink-0 flex-col items-end justify-end gap-10 lg:max-w-[416px] lg:flex-1">
+								<RichText
+									tagName="p"
+									className="mwm-hero-05__aside-highlight w-full max-w-[416px] text-xl leading-[1.2] text-acento"
+									value={ asideHighlight }
+									onChange={ ( value ) => setAttributes( { asideHighlight: value ?? '' } ) }
+									placeholder={ __( 'Titulo destacado...', 'zenyx' ) }
+									allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
+								/>
+								<div className="mwm-hero-05__media-wrap relative w-full max-w-[416px] overflow-hidden">
+									{ imageUrl ? (
+										<img
+											className="mwm-hero-05__media h-full w-full object-cover"
+											src={ imageUrl }
+											alt={ imageAlt || '' }
+										/>
+									) : (
+										<div className="mwm-hero-05__media-placeholder h-full w-full" aria-hidden="true" />
+									) }
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
+	);
+}

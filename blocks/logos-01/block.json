@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/logos-01",
+	"title": "Zenyx logos 01",
+	"description": "Rejilla de marcas con texto y logos tintados según el contexto claro u oscuro del sitio.",
+	"category": "theme",
+	"icon": "grid-view",
+	"textdomain": "zenyx",
+	"keywords": [ "logos", "marcas", "grid", "partners" ],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Marcas con las que trabajan nuestros alumnos"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "imageId": 0, "imageUrl": "", "imageAlt": "" },
+				{ "imageId": 0, "imageUrl": "", "imageAlt": "" },
+				{ "imageId": 0, "imageUrl": "", "imageAlt": "" },
+				{ "imageId": 0, "imageUrl": "", "imageAlt": "" },
+				{ "imageId": 0, "imageUrl": "", "imageAlt": "" }
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

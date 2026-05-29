@@ -1,0 +1,113 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/hero-01",
+	"title": "Zenyx hero 01",
+	"description": "Hero con media de fondo, media recortada, CTA y estadísticas.",
+	"category": "theme",
+	"icon": "cover-image",
+	"textdomain": "zenyx",
+	"keywords": [
+		"hero",
+		"media",
+		"video",
+		"cta"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"backgroundMediaType": {
+			"type": "string",
+			"default": "video"
+		},
+		"backgroundImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"backgroundVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"clipMediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"clipImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"clipImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"clipImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"clipVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"clipVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": "Escala tu agencia sin echar mas horas"
+		},
+		"subheading": {
+			"type": "string",
+			"default": "Para freelance o agencias de marketing, desarrollo, IA, estudios creativos, audiovisuales o agencias de performance"
+		},
+		"description": {
+			"type": "string",
+			"default": "No tenemos ningun metodo magico, pero te ensenamos los 4 procesos fundamentales que te permitiran:"
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Solicita una llamada"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"value": "1M+",
+					"description": "+83.333EUR / mes de facturacion"
+				},
+				{
+					"value": "35%",
+					"description": "De rentabilidad media total"
+				},
+				{
+					"value": "+20h",
+					"description": "De tus horas semanales libres de la operativa"
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}

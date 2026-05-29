@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "zenyx/stats-01",
+	"title": "Zenyx stats 01",
+	"description": "Titular, descripcion, CTA y tres estadisticas en fondo claro.",
+	"category": "theme",
+	"icon": "chart-bar",
+	"textdomain": "zenyx",
+	"keywords": [
+		"estadisticas",
+		"numeros",
+		"metricas"
+	],
+	"supports": {
+		"html": false,
+		"align": false
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Te ofrecemos resultados reales"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec pulvinar urna, id tincidunt risus. Integer luctus scelerisque nisi nec maximus."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Ver casos de éxito"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"value": "+140",
+					"label": "Más 140 agencias que han escalado"
+				},
+				{
+					"value": "+35%",
+					"label": "De rentabilidad media"
+				},
+				{
+					"value": "+20h",
+					"label": "De tus horas semanales libres de la operativa"
+				}
+			]
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"render": "file:./render.php"
+}
